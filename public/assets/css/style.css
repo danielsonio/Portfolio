@@ -1,0 +1,21 @@
+nav ul li a{
+  color: black;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width:100%;
+  z-index: 1000001;
+  height: 84px;
+}

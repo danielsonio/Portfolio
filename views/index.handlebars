@@ -1,0 +1,57 @@
+
+  <header>
+    <nav class="z-depth-0">
+      <div class="nav-wrapper white">
+        <a href="#" class="brand-logo right black-text">Logo</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="row">
+      {{#each port}}
+        <div class="col s12 m4">
+          <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src={{ image }}>
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ title }}<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">{{ link }}</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"> {{ title }} <i class="material-icons right">close</i></span>
+                <p>{{ description }}</p>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+    </div>
+  </main>
+
+  <footer class="page-footer white">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <p class="black-text">Footer Content</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+
+<script src="/assets/js/main.js"></script>
