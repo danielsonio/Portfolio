@@ -4,8 +4,6 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var exphbs = require("express-handlebars");
 var path = require("path");
-//Models
-var Example = require("./models/Example.js");
 
 var Portfolio = require("./data/portfolio.js")
 
