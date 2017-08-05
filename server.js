@@ -10,10 +10,6 @@ var Example = require("./models/Example.js");
 var Portfolio = require("./data/portfolio.js")
 
 
-
-//Set port
-var port = process.env.PORT || 8080;
-
 //Initialize express
 var app = express();
 
@@ -58,6 +54,6 @@ app.get("/contact", function(req, res) {
 
 
 
-app.listen(port, function() {
-  console.log("App running on port", port);
-})
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
