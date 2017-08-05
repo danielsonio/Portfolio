@@ -2,11 +2,9 @@
   <header>
     <nav class="z-depth-0">
       <div class="nav-wrapper white">
-        <a href="#" class="brand-logo right black-text">Logo</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">JavaScript</a></li>
+        <a href="/" class="brand-logo left black-text">Danny Walden</a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -15,18 +13,18 @@
   <main>
     <div class="row">
       {{#each port}}
-        <div class="col s12 m4">
-          <div class="card">
+        <div class="col s12 m6">
+          <div class="card z-depth-0">
               <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src={{ image }}>
+                <img class="activator" src={{ image }} height='230' width='240'>
               </div>
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{ title }}<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">{{ link }}</a></p>
+                <span class="card-title activator grey-text text-darken-4">{{ title }}</span>
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"> {{ title }} <i class="material-icons right">close</i></span>
                 <p>{{ description }}</p>
+                <p><a class="link" href="{{ link }}">Link</a></p>
               </div>
             </div>
           </div>
@@ -34,18 +32,20 @@
     </div>
   </main>
 
-  <footer class="page-footer white">
-    <div class="container">
+
+<hr />
+  <footer>
+    <div class="container" id="contact">
       <div class="row">
-        <div class="col l6 s12">
-          <p class="black-text">Footer Content</p>
+        <div style="text-align: center">
+          <a href="https://github.com/dwalden86"><i class="fa fa-github" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
+          <a href="https://www.linkedin.com/in/danny-walden-a0063379/"><i class="fa fa-linkedin" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
+          <a href="mailto:walden.houston@gmail.com?Subject=Hello%20Danny" target="_top"><i class="fa fa-envelope" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
+          <a href="assets/pics/campfire.jpg" download><i class="fa fa-file" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
         </div>
       </div>
     </div>
   </footer>
-
-
-
 
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
