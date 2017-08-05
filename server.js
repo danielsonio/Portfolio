@@ -25,29 +25,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-//Show any mongoose errors
-db.on("error", function(error) {
-  console.log("Mongoose Error: ", error);
-});
-
-
-//Once logged in to the db through mongoose, log a success message
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
-
 
 //Routes
 app.get("/", function(req, res) {
     res.render("index", { port: Portfolio });
-});
-
-app.get("/about", function(req, res) {
-    res.render("about");
-});
-
-app.get("/contact", function(req, res) {
-    res.render("contact");
 });
 
 
