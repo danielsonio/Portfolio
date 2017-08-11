@@ -14,9 +14,10 @@ img:hover {
 html, body {
   height: 100%;
   /*font-family: 'Roboto Condensed', sans-serif;*/
-  font-family: 'Anton', sans-serif;
+  font-family: 'Cabin', sans-serif;
 
 }
+
 
 body {
   display: flex;
