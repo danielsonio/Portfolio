@@ -4,7 +4,7 @@
       <div class="nav-wrapper white">
         <a href="/" class="brand-logo left black-text">Danny Walden</a>
         <ul id="nav-mobile" class="right">
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" class="contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -13,7 +13,7 @@
   <main>
     <div class="row">
       {{#each port}}
-        <div class="col s12 m6">
+        <div class="col s6">
           <div class="card z-depth-0">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src={{ image }} height='230' width='240'>
@@ -38,10 +38,12 @@
     <div class="container" id="contact">
       <div class="row">
         <div style="text-align: center">
-          <a href="https://github.com/dwalden86"><i class="fa fa-github" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
-          <a href="https://www.linkedin.com/in/danny-walden-a0063379/"><i class="fa fa-linkedin" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
-          <a href="mailto:danny@dannywalden.com?Subject=Hello%20Danny" target="_top"><i class="fa fa-envelope" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
-          <a href="assets/pics/resume.pdf" download><i class="fa fa-file" aria-hidden="true" style="font-size:48px; padding: 5vh; color: black"></i></a>
+          <ul>
+            <li><a href="https://github.com/dwalden86"><i class="fa fa-github" aria-hidden="true" style="font-size:48px; color: black"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/danny-walden-a0063379/"><i class="fa fa-linkedin" aria-hidden="true" style="font-size:48px; color: black"></i></a></li>
+            <li><a href="mailto:danny@dannywalden.com?Subject=Hello%20Danny" target="_top"><i class="fa fa-envelope" aria-hidden="true" style="font-size:48px; color: black"></i></a></li>
+            <li><a href="assets/pics/resume.pdf" download><i class="fa fa-file" aria-hidden="true" style="font-size:48px; color: black"></i></a></li>
+          </ul>
         </div>
       </div>
     </div>
