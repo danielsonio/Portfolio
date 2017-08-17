@@ -52,7 +52,7 @@
   
   i{
     transition: all .2s ease-in-out;
-    padding: 3vh;
+    padding: 4vh;
   }
   i:hover{
     transform: scale(1.2);
@@ -78,9 +78,3 @@
   .card-title:hover {
     transform: scale(1.1);
   }
-
-
-
-nav ul a {
-
-}
