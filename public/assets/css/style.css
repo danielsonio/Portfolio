@@ -6,12 +6,11 @@
   }
   
   img{
-    transition: all .2s ease-in-out;
+    transition: all .1s ease-in-out;
   }
   
   img:hover {
     opacity: 0.9;
-    transform: scale(1.1);
   }
   
   html, body {
@@ -26,8 +25,19 @@
     flex-direction: column;
   
   }
+
+
+  h5 {
+    font-weight: 500;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+
   main {
     flex: 1 0 auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
   
   #about {
@@ -36,7 +46,11 @@
   
   }
   
-  
+  #contact-link{
+    float: right;
+  }
+
+
   div.card-content.small {
     padding-top: 0px;
     margin-bottom: 5px;
@@ -46,35 +60,52 @@
     padding: 0px -0.25rem;
   }
   
-  div.nav-wrapper{
-    margin-bottom: 20px;
-  }
-  
   i{
     transition: all .2s ease-in-out;
     padding: 4vh;
   }
   i:hover{
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
   
   li {
     display: inline;
   }
 
+  header{
+    margin-top: 20px;
+  }
+
 
   .contact{
+    text-decoration: none;
     transition: all .2s ease-in-out;
   }
 
  .contact:hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
 
   .card-title {
+    font-size: 16px;
     transition: all .2s ease-in-out;
   }
 
   .card-title:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
+
+  #skills-list {
+    line-height: 40px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .skills{
+    font-size: 18px;
+    padding: 30px;
+  }
+
+  nav ul a:hover {
+    background-color: rgba(0,0,0,0);
+}

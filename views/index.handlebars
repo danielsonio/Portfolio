@@ -2,9 +2,9 @@
   <header>
     <nav class="z-depth-0">
       <div class="nav-wrapper white">
-        <a href="/" class="brand-logo left black-text">Danny Walden</a>
-        <ul id="nav-mobile" class="right">
-          <li><a href="#contact" class="contact">Contact</a></li>
+        <h4 class="brand-logo left black-text">Danny Walden</h4>
+        <ul class="nav-mobile" id="contact-link">
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -22,19 +22,44 @@
                 <span class="card-title activator grey-text text-darken-4">{{ title }}</span>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"> {{ title }} <i class="material-icons right">close</i></span>
+                <span class="card-title grey-text text-darken-4"> {{ title }} </span>
                 <p>{{ description }}</p>
-                <p><a class="link" href="{{ link }}">Link</a></p>
+                <p><a class="link" href="{{ link }}">Github Repo</a></p>
               </div>
             </div>
           </div>
         {{/each}}
     </div>
+      <div class="row">
+        <hr />
+        <h5>
+          Skills, Languages, and Frameworks
+        </h5>
+        <ul id="skills-list">
+          <li class="skills">JavaScript</li>
+          <li class="skills">Node</li>
+          <li class="skills">React</li>
+          <li class="skills">CSS3</li>
+          <li class="skills">Express</li>
+          <li class="skills">MongoDB</li>
+          <li class="skills">MySQL</li>
+          <li class="skills">Meteor.js</li>
+          <li class="skills">Responsive Design</li>
+          <li class="skills">User Authentication</li>
+          <li class="skills">Handlebars</li>
+          <li class="skills">Bootstrap</li>
+          <li class="skills">Materialize.js</li>
+          <li class="skills">p5.js</li>
+          <li class="skills">Git</li>
+          <li class="skills">Heroku</li>
+        </ul>
+      </div>
   </main>
 
 
-<hr />
+
   <footer>
+    <hr />
     <div class="container" id="contact">
       <div class="row">
         <div style="text-align: center">
