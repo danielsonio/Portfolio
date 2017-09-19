@@ -39,8 +39,12 @@ app.get("/about", function(req, res) {
   res.render("about");
 });
 
-app.get("/sketch", function(req, res) {
-  res.render("sketch");
+app.get("/sketches", function(req, res) {
+  res.render("sketches");
+});
+
+app.get("/sketch09-18-17", function(req, res) {
+  res.render("sketch09-18-17");
 });
 
 app.listen(process.env.PORT || 3000, function(){
