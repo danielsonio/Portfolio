@@ -28,7 +28,11 @@ app.set("view engine", "handlebars");
 
 //Routes
 app.get("/", function(req, res) {
-    res.render("index", { port: Portfolio });
+  res.render("sketch");
+});
+
+app.get("/portfolio", function(req, res) {
+    res.render("portfolio", { port: Portfolio });
 });
 
 app.get("/about", function(req, res) {
