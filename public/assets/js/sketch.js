@@ -5,8 +5,7 @@ var squares = [];
 function setup() {
   createCanvas(800,800);
 
-  while (squares.length < 300) {
-  // for(var i = 0; i< 200; i++){
+  while (squares.length < 250) {
 
     var red = Math.floor((Math.random() * 255) + 1)
     var green = Math.floor((Math.random() * 255) + 1)
@@ -23,8 +22,6 @@ function setup() {
 
     var overlapping = false;
 
-    var protection = 0;
-
     for (var j = 0; j< squares.length; j++) {
       var other = squares[j];
       var d = dist(square.x, square.y, other.x, other.y);
@@ -38,11 +35,6 @@ function setup() {
       console.log("overlap");         
     }
 
-    // protection++;
-
-    // if (protection > 200) {
-    //   break();
-    // }
  
   }
 
@@ -60,6 +52,7 @@ function draw() {
 
       fill(squares[i].red, squares[i].green, squares[i].blue);
       noStroke();
+
       rect(squares[i].x, squares[i].y, squares[i].r*2, squares[i].r*2);
   }
 
