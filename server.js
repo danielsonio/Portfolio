@@ -31,7 +31,13 @@ app.get("/", function(req, res) {
     res.render("index", { port: Portfolio });
 });
 
+app.get("/about", function(req, res) {
+  res.render("about");
+});
 
+app.get("/sketch", function(req, res) {
+  res.render("sketch");
+});
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);

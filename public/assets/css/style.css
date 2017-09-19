@@ -1,48 +1,70 @@
 
 
+nav{
+  background: orange;
+  height: 90px;
+}
+
+div.nav-wrapper{
+  line-height: 90px;
+}
   
-  nav ul li a{
-    color: black;
-  }
+nav ul li a{
+  color: black;
+  font-size: 16px;
+  transition: all .2s ease-in-out;
+}
+
+nav ul li a:hover{ 
+  transform: scale(1.1)
+}
+
+nav ul a:hover {
+  background-color: rgba(0,0,0,0);
+}
+
+img{
+  opacity: .9;
+  transition: all .2s ease-in-out;
+}
+
+img:hover {
+  opacity: 1;
+  transform: scale(.99);
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Cabin', sans-serif;
+
+}
   
-  img{
-    transition: all .1s ease-in-out;
-  }
   
-  img:hover {
-    opacity: 0.9;
-  }
-  
-  html, body {
-    height: 100%;
-    font-family: 'Cabin', sans-serif;
-  
-  }
-  
-  
-  body {
-    display: flex;
-    flex-direction: column;
-  
-  }
+body {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  align-items: center;
+}
 
 
-  h5 {
-    font-weight: 500;
-    margin-top: 40px;
-    text-align: center;
-  }
+h5 {
+  font-weight: 500;
+  margin-top: 40px;
+  text-align: center;
+}
 
 
-  main {
-    flex: 1 0 auto;
-    margin-top: 40px;
-    margin-bottom: 60px;
-  }
+main {
+  flex: 1 0 auto;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
   
   #about {
-    font-size: 22px;
-    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
   
   }
   
@@ -65,35 +87,26 @@
     padding: 4vh;
   }
   i:hover{
-    transform: scale(1.05);
+    transform: scale(.9);
   }
   
-  li {
+  li.skills {
     display: inline;
   }
 
+  li.contact-button {
+    display: inline;
+  }
   header{
     margin-top: 20px;
   }
 
 
-  .contact{
-    text-decoration: none;
-    transition: all .2s ease-in-out;
-  }
-
- .contact:hover {
-    transform: scale(1.05);
-  }
-
   .card-title {
     font-size: 16px;
-    transition: all .2s ease-in-out;
   }
 
-  .card-title:hover {
-    transform: scale(1.05);
-  }
+ 
 
   #skills-list {
     line-height: 40px;
@@ -102,10 +115,15 @@
   }
 
   .skills{
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
+    font-weight: 300px;
     padding: 30px;
   }
 
-  nav ul a:hover {
-    background-color: rgba(0,0,0,0);
+
+
+canvas{
+
+  align-items: center; 
 }
