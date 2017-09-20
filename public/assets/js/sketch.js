@@ -1,59 +1,42 @@
-console.log("See all of my sketches")
-
-var squares = [];
-
 function setup() {
-  createCanvas(800,800);
+  createCanvas(400, 400);
 
-  while (squares.length < 250) {
-
-    var red = Math.floor((Math.random() * 255) + 1)
-    var green = Math.floor((Math.random() * 255) + 1)
-    var blue = Math.floor((Math.random() * 255) + 1)
-
-    var square = {
-      x: random(width),
-      y: random(height),
-      r: random(14, 32),
-      red: red,
-      green: green,
-      blue: blue
-    };
-
-    var overlapping = false;
-
-    for (var j = 0; j< squares.length; j++) {
-      var other = squares[j];
-      var d = dist(square.x, square.y, other.x, other.y);
-      if (d < square.r + other.r) {
-        overlapping = true;
-      }
-    }
-
-    if (!overlapping) {
-      squares.push(square);
-      console.log("overlap");         
-    }
-
- 
-  }
+  setInterval(function(){
+      latinChar(65,89);
+  },50)
+}
 
 
-  console.log(squares.length);
+function draw() {
+  background(156,244,167,10);
+}
 
-  
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
 
 
-function draw() {
-
-  for (var i = 0; i < squares.length; i++) {
-
-      fill(squares[i].red, squares[i].green, squares[i].blue);
-      noStroke();
-
-      rect(squares[i].x, squares[i].y, squares[i].r*2, squares[i].r*2);
+function latinChar(x,y) {
+  var string_length = getRandomInt(2,5);
+  var char = "";
+  var string = "";
+  for(var i = 0; i < string_length;i++) {
+      var t = getRandomInt(x,y);
+      char = String.fromCharCode(t);
+      string += char;
   }
 
+  renderCharacters(string);
+}
+
+
+function renderCharacters(char) {
+  var x = getRandomInt(8,44);
+  fill(255,168,133);
+  textSize(x);
+  text(char, random(width), random(height));
 }
