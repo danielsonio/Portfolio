@@ -126,6 +126,11 @@ main {
   }
 
 
+  nav .button-collapse i {
+    line-height: 40px;
+    padding-left: 0px;
+  }
+
 
 canvas{
 
@@ -137,8 +142,5 @@ canvas{
 
 @media screen and (max-width: 800px) {
 
-  nav .button-collapse i {
-    line-height: 40px;
-    padding-left: 0px;
-  }
+
 }
