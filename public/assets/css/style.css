@@ -140,7 +140,16 @@ canvas{
 
 /*MEDIA QUERIES */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 400px) {
 
+  li.skills{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  .skills{
+
+  }
 
 }
