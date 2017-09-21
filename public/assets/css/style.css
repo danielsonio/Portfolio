@@ -135,7 +135,7 @@ canvas{
 
 /*MEDIA QUERIES */
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
 
   nav .button-collapse i {
     line-height: 40px;
