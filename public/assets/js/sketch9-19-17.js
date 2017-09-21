@@ -1,9 +1,18 @@
 var squares = [];
+var canvas;
+var square_count;
 
 function setup() {
-  createCanvas(800,800);
 
-  while (squares.length < 250) {
+  if (windowWidth < 400) {
+    createCanvas(300,300);
+    square_count = 50
+  } else {
+    createCanvas(800,800);
+    square_count = 250
+  }
+
+  while (squares.length < square_count) {
 
     var red = Math.floor((Math.random() * 255) + 1)
     var green = Math.floor((Math.random() * 255) + 1)
