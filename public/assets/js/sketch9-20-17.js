@@ -1,6 +1,6 @@
 function setup() {
-    createCanvas(400, 400);
-  
+    var canvas = createCanvas(400, 400);
+    canvas.parent('board');
     setInterval(function(){
         latinChar(65,89);
     },50)

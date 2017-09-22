@@ -132,9 +132,14 @@ main {
   }
 
 
-canvas{
+#board {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
 
-  align-items: center; 
+#sketch_title {
+  text-align: center;
 }
 
 

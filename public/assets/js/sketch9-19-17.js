@@ -5,10 +5,12 @@ var square_count;
 function setup() {
 
   if (windowWidth < 400) {
-    createCanvas(300,300);
+    var canvas = createCanvas(300, 300);
+    canvas.parent('board');
     square_count = 50
   } else {
-    createCanvas(800,800);
+    var canvas = createCanvas(800, 800);
+    canvas.parent('board');
     square_count = 250
   }
 

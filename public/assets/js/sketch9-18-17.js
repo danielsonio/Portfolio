@@ -3,8 +3,8 @@ var particles = [];
 
 
 function setup() {
-	var canvas = createCanvas(600, 600);
-	
+	var canvas = createCanvas(400, 400);
+	canvas.parent('board');
 	timePush();
 	canvas.mousePressed(particlePush);
 

@@ -3,7 +3,8 @@ var counter = 1200;
 var screenHeight = 200;
 
 function setup() {
-    createCanvas(600, screenHeight);
+    var canvas = createCanvas(600, screenHeight);
+    canvas.parent('board');
     setInterval(function() {
         var stream = new Stream();
         stream.generateSymbol(counter);
