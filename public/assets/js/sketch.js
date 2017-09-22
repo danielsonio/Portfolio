@@ -1,12 +1,39 @@
 var streams = [];
-var counter = 1200;
-var screenHeight = 200;
+var counter = Math.floor((Math.random() * 100000) + 1);
+var screenHeight = 400;
+
+var button = document.querySelector("#newunicode");
+
+button.addEventListener('click', function() {
+    counter = Math.floor((Math.random() * 100000) + 1);
+
+    var elem = document.querySelector('#unicode');
+    elem.animate([
+      { 
+        transform: 'translateY(-1000px) scaleY(2.5) scaleX(.2)', 
+        transformOrigin: '50% 0', 
+        filter: 'blur(1px)', 
+        opacity: 0 
+      },
+      { 
+        transform: 'translateY(0) scaleY(1) scaleX(1)',
+        transformOrigin: '50% 50%',
+        filter: 'blur(0)',
+        opacity: 1 
+      }
+    ], 1000);
+
+})
+
+
+
+
 
 function setup() {
     var r = 100;
     var g = 0;
     var b = 100;
-    var speed = 5;
+    var color_meter = 5;
     var forward = true;
     var canvas = createCanvas(600, screenHeight);
     canvas.parent('board');
@@ -19,16 +46,18 @@ function setup() {
             streams.splice(0,1);
         }
         counter++
+       console.log("Unicode Index Number:", counter);
+       document.getElementById("unicode").innerHTML = counter;
        
         if(forward) {
-            r+=speed;
-            g+=speed;
+            r+=color_meter;
+            g+=color_meter;
          
         }
 
         if(!forward) {
-            r-=speed;
-            g-=speed;
+            r-=color_meter;
+            g-=color_meter;
    
         }
 
@@ -40,7 +69,7 @@ function setup() {
         }
 
 
-    }, 300);
+    }, 1000);
 
 }
 
@@ -74,12 +103,12 @@ function Symbol(x,y,id,r,g,b) {
             this.y += this.speed;
         }
         if(this.y < 0) {
-            this.x += 50;
+            this.x += 120;
             this.y = 0;
             this.up = false;
         }
-        if(this.y > screenHeight) {
-            this.x += 50;
+        if(this.y > screenHeight+80) {
+            this.x += 120;
             this.y = screenHeight;
             this.up = true;
         }
@@ -102,7 +131,7 @@ function Stream(r,g,b) {
 	this.render = function() {
         this.symbols.forEach(function(symbol) {
             fill(symbol.r, symbol.g, symbol.b);
-            textSize(44);
+            textSize(80);
             text(symbol.value, symbol.x, symbol.y);
             symbol.move();
         });

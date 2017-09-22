@@ -142,6 +142,17 @@ main {
   text-align: center;
 }
 
+#unibutton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#unibutton .btn{
+  background: rgb(100,0,100);
+}
+
+
 
 /*MEDIA QUERIES */
 
