@@ -3,17 +3,44 @@ var counter = 1200;
 var screenHeight = 200;
 
 function setup() {
+    var r = 100;
+    var g = 0;
+    var b = 100;
+    var speed = 5;
+    var forward = true;
     var canvas = createCanvas(600, screenHeight);
     canvas.parent('board');
     setInterval(function() {
-        var stream = new Stream();
+        
+        var stream = new Stream(r,g,b);
         stream.generateSymbol(counter);
         streams.push(stream);
         if (streams.length>50) {
             streams.splice(0,1);
         }
         counter++
-    }, 200);
+       
+        if(forward) {
+            r+=speed;
+            g+=speed;
+         
+        }
+
+        if(!forward) {
+            r-=speed;
+            g-=speed;
+   
+        }
+
+        if(r>200) {
+            forward = false;
+        }
+        if(r<100){
+            forward = true;
+        }
+
+
+    }, 300);
 
 }
 
@@ -28,22 +55,23 @@ function getRandomInt(min, max) {
 
 
 
-function Symbol(x,y,id) {
+function Symbol(x,y,id,r,g,b) {
     this.x = x;
     this.y = y;
     this.id = id;
-    this.r = getRandomInt(0,255);
-    this.g = getRandomInt(0,255);
-    this.b = getRandomInt(0,255);
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.speed = 3;
     this.up = true;
     this.setToSymbol = function() {
         this.value = String.fromCharCode(this.id);
     }
     this.move = function() {
         if(this.up) {
-            this.y -= 5;
+            this.y -= this.speed;
         } else {
-            this.y += 5;
+            this.y += this.speed;
         }
         if(this.y < 0) {
             this.x += 50;
@@ -61,10 +89,10 @@ function Symbol(x,y,id) {
 
 }
 
-function Stream() {
+function Stream(r,g,b) {
     this.symbols = [];
     this.generateSymbol = function(counter) {
-        symbol = new Symbol(5, screenHeight, counter);
+        symbol = new Symbol(5, screenHeight, counter,r,g,b);
         symbol.setToSymbol();
 
         this.symbols.push(symbol);
