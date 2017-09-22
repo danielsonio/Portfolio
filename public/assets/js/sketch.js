@@ -1,42 +1,77 @@
+var streams = [];
+var counter = 1205;
+var screenHeight = 200;
+
 function setup() {
-  createCanvas(400, 400);
+    createCanvas(600, screenHeight);
+    setInterval(function() {
+        var stream = new Stream();
+        stream.generateSymbol(counter);
+        streams.push(stream);
+        counter++
+    }, 100);
 
-  setInterval(function(){
-      latinChar(65,89);
-  },50)
 }
 
-
-function draw() {
-  background(156,244,167,10);
-}
 
 
 function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
-
-
-
-function latinChar(x,y) {
-  var string_length = getRandomInt(2,5);
-  var char = "";
-  var string = "";
-  for(var i = 0; i < string_length;i++) {
-      var t = getRandomInt(x,y);
-      char = String.fromCharCode(t);
-      string += char;
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
 
-  renderCharacters(string);
+
+
+
+function Symbol(x,y,id) {
+    this.x = x;
+    this.y = y;
+    this.id = id;
+    this.r = getRandomInt(0,255);
+    this.g = getRandomInt(0,255);
+    this.b = getRandomInt(0,255);
+    this.setToSymbol = function() {
+        this.value = String.fromCharCode(this.id);
+    }
+    this.move = function() {
+        this.y -= 5;
+        if(this.y < 0) {
+            this.x += 35;
+            this.y = screenHeight;
+        }
+    }
+
+}
+
+function Stream() {
+    this.symbols = [];
+    this.generateSymbol = function(counter) {
+        symbol = new Symbol(5, screenHeight, counter);
+        symbol.setToSymbol();
+
+        this.symbols.push(symbol);
+
+    }
+	this.render = function() {
+        
+        this.symbols.forEach(function(symbol) {
+            fill(symbol.r, symbol.g, symbol.b);
+            textSize(34);
+            text(symbol.value, symbol.x, symbol.y);
+            symbol.move();
+        });
+    }
+
 }
 
 
-function renderCharacters(char) {
-  var x = getRandomInt(8,44);
-  fill(255,168,133);
-  textSize(x);
-  text(char, random(width), random(height));
+
+function draw() {
+    background(255);
+    streams.forEach(function(stream){
+        stream.render();
+	});
+
 }
+
