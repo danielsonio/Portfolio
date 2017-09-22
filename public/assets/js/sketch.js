@@ -1,5 +1,5 @@
 var streams = [];
-var counter = 1205;
+var counter = 1200;
 var screenHeight = 200;
 
 function setup() {
@@ -8,8 +8,11 @@ function setup() {
         var stream = new Stream();
         stream.generateSymbol(counter);
         streams.push(stream);
+        if (streams.length>50) {
+            streams.splice(0,1);
+        }
         counter++
-    }, 100);
+    }, 200);
 
 }
 
@@ -31,15 +34,28 @@ function Symbol(x,y,id) {
     this.r = getRandomInt(0,255);
     this.g = getRandomInt(0,255);
     this.b = getRandomInt(0,255);
+    this.up = true;
     this.setToSymbol = function() {
         this.value = String.fromCharCode(this.id);
     }
     this.move = function() {
-        this.y -= 5;
-        if(this.y < 0) {
-            this.x += 35;
-            this.y = screenHeight;
+        if(this.up) {
+            this.y -= 5;
+        } else {
+            this.y += 5;
         }
+        if(this.y < 0) {
+            this.x += 50;
+            this.y = 0;
+            this.up = false;
+        }
+        if(this.y > screenHeight) {
+            this.x += 50;
+            this.y = screenHeight;
+            this.up = true;
+        }
+
+
     }
 
 }
@@ -52,12 +68,12 @@ function Stream() {
 
         this.symbols.push(symbol);
 
+
     }
 	this.render = function() {
-        
         this.symbols.forEach(function(symbol) {
             fill(symbol.r, symbol.g, symbol.b);
-            textSize(34);
+            textSize(44);
             text(symbol.value, symbol.x, symbol.y);
             symbol.move();
         });
@@ -74,4 +90,3 @@ function draw() {
 	});
 
 }
-
