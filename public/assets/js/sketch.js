@@ -1,150 +1,77 @@
-var streams = [];
-var counter = Math.floor((Math.random() * 100000) + 1);
-var screenHeight = 400;
+var symbol_pairs = [];
 
-var button = document.querySelector("#newunicode");
-
-button.addEventListener('click', function() {
-    counter = Math.floor((Math.random() * 100000) + 1);
-
-    var elem = document.querySelector('#unicode');
-    elem.animate([
-      { 
-        transform: 'translateY(-1000px) scaleY(2.5) scaleX(.2)', 
-        transformOrigin: '50% 0', 
-        filter: 'blur(1px)', 
-        opacity: 0 
-      },
-      { 
-        transform: 'translateY(0) scaleY(1) scaleX(1)',
-        transformOrigin: '50% 50%',
-        filter: 'blur(0)',
-        opacity: 1 
-      }
-    ], 1000);
-
-})
-
-
-
-
-
-function setup() {
-    var r = 100;
-    var g = 0;
-    var b = 100;
-    var color_meter = 5;
-    var forward = true;
-    var canvas = createCanvas(600, screenHeight);
+function setup(){
+    var canvas = createCanvas(400, 400);
     canvas.parent('board');
-    setInterval(function() {
-        
-        var stream = new Stream(r,g,b);
-        stream.generateSymbol(counter);
-        streams.push(stream);
-        if (streams.length>50) {
-            streams.splice(0,1);
-        }
-        counter++
-       console.log("Unicode Index Number:", counter);
-       document.getElementById("unicode").innerHTML = counter;
-       
-        if(forward) {
-            r+=color_meter;
-            g+=color_meter;
-         
-        }
 
-        if(!forward) {
-            r-=color_meter;
-            g-=color_meter;
-   
-        }
+    for(var i = 0; i<2;i++) {
+        var symbol_pair = new SymbolPair(300,300);
+        symbol_pair.generateSymbols();
+        symbol_pairs.push(symbol_pair);
+    }
 
-        if(r>200) {
-            forward = false;
-        }
-        if(r<100){
-            forward = true;
-        }
-
-
-    }, 1000);
 
 }
 
 
+function draw(){
+    background(48,129,232);
+    symbol_pairs.forEach(function(symbol_pair) {
+        console.log()
+        symbol_pair.renderSymbols();
+    })
+}
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
 
 
-
-
-function Symbol(x,y,id,r,g,b) {
+function Symbols(x,y){
+    this.range = 50;
     this.x = x;
     this.y = y;
-    this.id = id;
-    this.r = r;
-    this.g = g;
-    this.b = b;
-    this.speed = 3;
-    this.up = true;
-    this.setToSymbol = function() {
-        this.value = String.fromCharCode(this.id);
+    this.index0 = Math.floor((Math.random() * 2000) + 60);
+    this.index1 = Math.floor((Math.random() * 2000) + 60);
+    this.values = [this.index0, this.index1];
+    this.symbols = [];
+    this.getSymbols = function(value){
+        for (var i = 0;i<this.values.length;i++){
+            symbol = String.fromCharCode(this.values[i]);
+            this.symbols.push(symbol);
+        }
     }
-    this.move = function() {
-        if(this.up) {
-            this.y -= this.speed;
-        } else {
-            this.y += this.speed;
-        }
-        if(this.y < 0) {
-            this.x += 120;
-            this.y = 0;
-            this.up = false;
-        }
-        if(this.y > screenHeight+80) {
-            this.x += 120;
-            this.y = screenHeight;
-            this.up = true;
-        }
-
-
-    }
-
 }
 
-function Stream(r,g,b) {
-    this.symbols = [];
-    this.generateSymbol = function(counter) {
-        symbol = new Symbol(5, screenHeight, counter,r,g,b);
-        symbol.setToSymbol();
 
-        this.symbols.push(symbol);
+function SymbolPair(){
+    this.pair_array = [];
+    this.x = 0;
+    this.y = 30;
+    this.generateSymbols = function(){
+        for (var i = 0; i<70; i++){
+            symbol_pair = new Symbols(this.x,this.y);
+            symbol_pair.getSymbols();
+            this.pair_array.push(symbol_pair);
+            this.x+=55;
+            console.log(symbol_pair);
+            if(this.x > 400) {
+                this.y += 55;
+                this.x = 0;
+            }
+        }
 
-
+    
     }
-	this.render = function() {
-        this.symbols.forEach(function(symbol) {
-            fill(symbol.r, symbol.g, symbol.b);
-            textSize(80);
-            text(symbol.value, symbol.x, symbol.y);
-            symbol.move();
+    this.renderSymbols = function() {
+        this.pair_array.forEach(function(symbol_pair) {
+            fill(255,171,34);
+            textSize(50);
+
+
+            if(mouseX>(symbol_pair.x - symbol_pair.range) && mouseX<(symbol_pair.x + symbol_pair.range) && mouseY>(symbol_pair.y - symbol_pair.range) && mouseY<(symbol_pair.y + symbol_pair.range)) {
+                fill(255,206,125);
+                text(symbol_pair.symbols[1], symbol_pair.x, symbol_pair.y);
+            } else {
+                text(symbol_pair.symbols[0], symbol_pair.x, symbol_pair.y);
+            }
         });
     }
-
-}
-
-
-
-function draw() {
-    background(255);
-    streams.forEach(function(stream){
-        stream.render();
-	});
-
 }
