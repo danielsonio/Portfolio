@@ -2,21 +2,20 @@ var circles = [];
 
 
 function setup(){
-    var canvas = createCanvas(400,400);
+    var canvas = createCanvas(600,400);
     canvas.parent('board');
-    
-    for(var i = 1;i<5;i++){
-        circle = new Circle(i*80,100);
+    setInterval(function(){
+        circle = new Circle(300, 400,mouseY,mouseX,mouseX/3);
         circles.push(circle);
-    }
-    for(var i = 1;i<5;i++){
-        circle = new Circle(i*80,300);
-        circles.push(circle);
-    }
+        if(circles.length>7){
+            circles.splice(0,1);
+        }
+    },1000);
+
 }
 
 function draw(){
-    background(168,mouseX/3,mouseY/2);
+    background(255);
 
     circles.forEach(function(circle){
         circle.render()
@@ -28,18 +27,17 @@ function draw(){
 
 
 
-function Circle(x,y){
+function Circle(x,y,r,g,b){
     this.x = x;
     this.y = y;
+    this.size = 5;
+    this.r = r;
+    this.g = g;
+    this.b = b;
     this.render = function(){
         noStroke();
-        fill(mouseX/2,mouseY/1.5,mouseX/mouseY);
-        if(mouseX>200){
-            ellipse(this.x,this.y,mouseY/3,mouseX/3)
-        }
-        if(mouseX<200){
-            ellipse(this.x,this.y,mouseX/3,mouseY/3)
-        }
+        fill(this.r,this.g,this.b);
+        ellipse(this.x,this.y,this.size,this.size);
+        this.size+=3;
     }
 }
-
