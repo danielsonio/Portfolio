@@ -1,43 +1,51 @@
-var circles = [];
+let angle = 0;
+var boxes = [];
 
-
-function setup(){
-    var canvas = createCanvas(600,400);
+function setup() {
+    canvas = createCanvas(400,400);
     canvas.parent('board');
-    setInterval(function(){
-        circle = new Circle(300, 400,mouseY,mouseX,mouseX/3);
-        circles.push(circle);
-        if(circles.length>7){
-            circles.splice(0,1);
+    angleMode(DEGREES);
+    x = 50;
+    y = 50;
+
+
+    for(var i = 0; i<16; i++){
+        box = new Box(x,y);
+        boxes.push(box);
+        x+=100;
+        angle+=1;
+        if(x>width){
+            x = 50;
+            y+=100;
         }
-    },1000);
+    }
+    
+}
+
+function draw() {
+    background(255,252,210);
+    boxes.forEach(function(box){
+
+        box.render();
+    
+    });
 
 }
 
-function draw(){
-    background(255);
-
-    circles.forEach(function(circle){
-        circle.render()
-    })
-
-}
-
-
-
-
-
-function Circle(x,y,r,g,b){
+function Box(x,y){
     this.x = x;
     this.y = y;
-    this.size = 5;
-    this.r = r;
-    this.g = g;
-    this.b = b;
+    this.angle = angle;
     this.render = function(){
+        rectMode(CENTER);
         noStroke();
-        fill(this.r,this.g,this.b);
-        ellipse(this.x,this.y,this.size,this.size);
-        this.size+=3;
+        push();
+        translate(this.x,this.y);
+        scale(-1,1);
+        rotate(angle);
+        fill(229,209,250);
+        rect(0,0,100,10);
+        pop();;
+        angle+=.1;
     }
 }
