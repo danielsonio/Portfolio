@@ -5,21 +5,23 @@ function setup() {
     canvas = createCanvas(400,400);
     canvas.parent('board');
     angleMode(DEGREES);
-    x = 50;
-    y = 50;
+    x = 25;
+    y = 25;
 
-
-    for(var i = 0; i<16; i++){
+    setInterval(function(){
         box = new Box(x,y);
         boxes.push(box);
-        x+=100;
+        x+=50;
         angle+=1;
         if(x>width){
-            x = 50;
-            y+=100;
+            x = 25;
+            y+=50;
         }
-    }
-    
+        if(boxes.length>65){
+            boxes.splice(0,1);
+        }
+    },250);
+
 }
 
 function draw() {
@@ -44,7 +46,7 @@ function Box(x,y){
         scale(-1,1);
         rotate(angle);
         fill(229,209,250);
-        rect(0,0,100,10);
+        rect(0,0,50,10);
         pop();;
         angle+=.1;
     }
