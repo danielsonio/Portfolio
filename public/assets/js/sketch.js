@@ -1,53 +1,35 @@
-let angle = 0;
-var boxes = [];
+let x = 0;
+let y = 400;
+let spacing = 30;
 
-function setup() {
+function setup(){
     canvas = createCanvas(400,400);
     canvas.parent('board');
-    angleMode(DEGREES);
-    x = 25;
-    y = 25;
-
-    setInterval(function(){
-        box = new Box(x,y);
-        boxes.push(box);
-        x+=50;
-        angle+=1;
-        if(x>width){
-            x = 25;
-            y+=50;
-        }
-        if(boxes.length>65){
-            boxes.splice(0,1);
-        }
-    },250);
+    background(14,54,158);
 
 }
 
-function draw() {
-    background(255,252,210);
-    boxes.forEach(function(box){
+function draw(){
 
-        box.render();
-    
-    });
+    maze();
 
 }
 
-function Box(x,y){
-    this.x = x;
-    this.y = y;
-    this.angle = angle;
-    this.render = function(){
-        rectMode(CENTER);
-        noStroke();
-        push();
-        translate(this.x,this.y);
-        scale(-1,1);
-        rotate(angle);
-        fill(229,209,250);
-        rect(0,0,50,10);
-        pop();;
-        angle+=.1;
+
+
+function maze(){
+    strokeWeight(6);
+    stroke(255);
+    if (random(1)<0.5){
+        line(x,y,x+spacing,y-spacing);
+    } else{
+        line(x,y-spacing,x+spacing,y);
+    }
+
+    x = x + spacing;
+    if (x > width) {
+        x = 0;
+        y = y-spacing;
     }
 }
+
