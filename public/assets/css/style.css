@@ -155,6 +155,15 @@ main {
 }
 
 
+#sketch_container {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 80px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+
 
 /*MEDIA QUERIES */
 

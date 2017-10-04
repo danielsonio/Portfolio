@@ -5,7 +5,8 @@ var logger = require("morgan");
 var exphbs = require("express-handlebars");
 var path = require("path");
 
-var Portfolio = require("./data/portfolio.js")
+var Portfolio = require("./data/portfolio.js");
+var Sketches = require("./data/sketches.js");
 
 
 //Initialize express
@@ -40,7 +41,7 @@ app.get("/about", function(req, res) {
 });
 
 app.get("/sketches", function(req, res) {
-  res.render("sketches");
+  res.render("sketches", {sketch: Sketches});
 });
 
 app.get("/sketch09-18-17", function(req, res) {
