@@ -1,4 +1,4 @@
-  <main>
+  {{!-- <main>
     <div class="row">
       {{#each port}}
         <div class="col s12 m6">
@@ -18,5 +18,15 @@
           </div>
         {{/each}}
     </div>
-  </main>
+  </main> --}}
 
+  <main>
+    <div class="projects"></div>
+      {{#each port}}
+        <div class="ind-project"></div>
+          <h5>{{ title }}</h5>
+          <p> {{ description }} <span></span></p>
+          <p><a class="link" href="{{ link }}">Github Repo</a></p>
+      {{/each}}
+    </div>
+  </main>
