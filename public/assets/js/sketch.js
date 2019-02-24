@@ -112,7 +112,7 @@ class Snowflake {
         push()
         translate(this.pos.x + this.xOff, this.pos.y)
         rotate(this.angle);
-        stroke(255);
+        stroke(100,240,0);
         strokeWeight(this.r);
         point(this.pos.x, this.pos.y);
         pop();

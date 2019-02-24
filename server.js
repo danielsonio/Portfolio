@@ -5,8 +5,6 @@ var logger = require("morgan");
 var exphbs = require("express-handlebars");
 var path = require("path");
 
-var Portfolio = require("./data/portfolio.js");
-var Sketches = require("./data/sketches.js");
 
 
 //Initialize express
